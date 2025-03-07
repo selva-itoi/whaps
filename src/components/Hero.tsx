@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
               whileDrag={{ scale: 1.05 }}
             >
               <img
-                src={`${import.meta.env.BASE_URL}/public/img/hero1.png`}
+                src={`${import.meta.env.BASE_URL}/img/hero1.png`}
                 alt="WhatsApp Marketing Platform"
                 className="rounded-2xl shadow-2xl"
               />
