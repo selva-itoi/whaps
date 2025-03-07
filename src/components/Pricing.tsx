@@ -136,7 +136,7 @@ const Pricing: React.FC = () => {
                 className={`px-6 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors ${!isAnnual ? 'bg-green-500 text-white' : 'text-gray-700 hover:bg-gray-200'}`}
                 onClick={() => toggleBilling(false)}
               >
-                Monthly
+                Monthly <span className="text-xs opacity-90">(Save 10%)</span>
               </button>
               <button
                 className={`px-6 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors ${isAnnual ? 'bg-green-500 text-white' : 'text-gray-700 hover:bg-gray-200'}`}
