@@ -117,11 +117,6 @@ const DraggableCard: React.FC<DraggableCardProps> = ({ icon, title, description,
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      drag
-      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      dragElastic={0.1}
-      whileDrag={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-      whileTap={{ scale: 1.02 }}
     >
       <div className="mb-6">{icon}</div>
       <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
