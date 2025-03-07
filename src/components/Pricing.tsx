@@ -9,12 +9,28 @@ const Pricing: React.FC = () => {
     setIsAnnual(value);
   };
 
+  const handleSignup = async (planName: string) => {
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ plan: planName }),
+      });
+      const data = await response.json();
+      console.log('Signup Response:', data);
+    } catch (error) {
+      console.error('Signup Error:', error);
+    }
+  };
 
   const plans = [
     {
       name: "Starter",
-      monthlyPrice: 329, make 10% and final rounded amount of 299 is actual price amount i want to show likw anuual
-      annualPrice: 299 * 12,
+      originalMonthlyPrice: 329,
+      monthlyPrice: Math.round(329 * 0.9),
+      annualPrice: Math.round((329 * 12) * 0.85),
       description: "Perfect for small businesses just getting started with WhatsApp marketing.",
       features: [
         "Up to 1000 messages per month",
@@ -29,8 +45,9 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Professional",
-      monthlyPrice: 879, make 10% and final rounded amount of 799 is actual price amount i want to show likw anuual
-      annualPrice: 799 * 12,
+      originalMonthlyPrice: 879,
+      monthlyPrice: Math.round(879 * 0.9),
+      annualPrice: Math.round((879 * 12) * 0.85),
       description: "Ideal for growing businesses looking to scale their WhatsApp marketing.",
       features: [
         "Up to 10000 messages per month",
@@ -45,12 +62,12 @@ const Pricing: React.FC = () => {
         "Full API access",
       ],
       notIncluded: ["Unlimited messages", "Priority support"],
-
     },
     {
       name: "Enterprise",
-      monthlyPrice: 1649, make 10% and final rounded amount of 1499 is actual price amount i want to show likw anuual
-      annualPrice: 1499 * 12,
+      originalMonthlyPrice: 1649,
+      monthlyPrice: Math.round(1649 * 0.9),
+      annualPrice: Math.round((1649 * 12) * 0.85),
       description: "For large organizations requiring advanced features and dedicated support.",
       features: [
         "Up to 50000 messages per month",
@@ -73,8 +90,8 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Custom",
-      monthlyPrice: null, // No fixed price
-      annualPrice: null, // No fixed price
+      monthlyPrice: null,
+      annualPrice: null,
       description: "Tailored solutions for enterprises with unique needs. Contact us for a custom plan.",
       features: [
         "Messages limit (unlimited)",
@@ -158,19 +175,21 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
-  const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
-  const isCustom = plan.custom;
+  // Define fixed rounded prices
+  const fixedPrices: Record<string, { monthly: number; annual: number }> = {
+    "Starter": { monthly: 299, annual: Math.round(299 * 12 * 0.85) },
+    "Professional": { monthly: 799, annual: Math.round(799 * 12 * 0.85) },
+    "Enterprise": { monthly: 1499, annual: Math.round(1499 * 12 * 0.85) },
+  };
 
-  // Calculate discount for annual pricing (15% off)
-  const discountPercentage = 15;
-  const originalAnnualPrice = plan.monthlyPrice ? plan.monthlyPrice * 12 : null;
-  const discountAmount = originalAnnualPrice ? (originalAnnualPrice * discountPercentage) / 100 : 0;
-  const finalAnnualPrice = originalAnnualPrice ? originalAnnualPrice - discountAmount : null;
+  const actualMonthlyPrice = fixedPrices[plan.name]?.monthly || null;
+  const actualAnnualPrice = fixedPrices[plan.name]?.annual || null;
+
   const handleSignup = async (planName: string) => {
     const planUrls: Record<string, string> = {
       "Starter": "https://dev.agoo.in/register/1",
       "Professional": "https://dev.agoo.in/register/3",
-      "Enterprise": "https://dev.agoo.in/register/2"
+      "Enterprise": "https://dev.agoo.in/register/2",
     };
     if (planUrls[planName]) {
       window.location.href = planUrls[planName]; // Redirect to the corresponding URL
@@ -197,18 +216,24 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
         <p className="mt-2 text-gray-600">{plan.description}</p>
 
         {/* Pricing Display */}
-        {!isCustom ? (
-          <div className="mt-4 bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
+        {!plan.custom ? (
+          <div className="mt-4">
             {isAnnual ? (
-              <>
-                <span className="text-sm opacity-80 line-through mr-2">₹{originalAnnualPrice}</span>
-                ₹{finalAnnualPrice} <span className="text-sm opacity-80">/yr</span>
-                <p className="text-sm text-green-300 font-medium">You save ₹{discountAmount}</p>
-              </>
+              <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
+                <span className="text-sm opacity-80 line-through mr-2">
+                  ₹{actualMonthlyPrice ? actualMonthlyPrice * 12 : ''}
+                </span>
+                ₹{actualAnnualPrice} <span className="text-sm opacity-80">/yr</span>
+                <p className="text-sm text-green-300 font-medium">
+                  You save ₹{actualMonthlyPrice ? Math.round(actualMonthlyPrice * 12 - actualAnnualPrice) : 0}
+                </p>
+              </div>
             ) : (
-              <>
-                ₹{price} <span className="text-sm opacity-80">/mo</span>
-              </>
+              <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
+                <span className="text-sm opacity-80 line-through mr-2">₹{plan.originalMonthlyPrice}</span>
+                ₹{actualMonthlyPrice} <span className="text-sm opacity-80">/mo</span>
+                <p className="text-sm text-green-300 font-medium">You save ₹{plan.originalMonthlyPrice - (actualMonthlyPrice || 0)}</p>
+              </div>
             )}
           </div>
         ) : (
@@ -221,7 +246,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
           whileTap={{ scale: 0.98 }}
           onClick={() => handleSignup(plan.name)}
         >
-          {isCustom ? "Contact Us" : 'Start Free 14 Trial'}
+          {plan.custom ? "Contact Us" : 'Start Free 14 Trial'}
         </motion.button>
       </div>
 
@@ -239,8 +264,5 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
     </motion.div>
   );
 };
-
-
-
 
 export default Pricing;
