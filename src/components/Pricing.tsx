@@ -116,8 +116,8 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section id="pricing" className="py-6 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 md:px-4">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -133,13 +133,13 @@ const Pricing: React.FC = () => {
           <div className="mt-8 flex items-center justify-center">
             <motion.div className="bg-white p-1 rounded-full shadow-sm inline-flex relative z-10">
               <button
-                className={`px-6 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors ${!isAnnual ? 'bg-green-500 text-white' : 'text-gray-700 hover:bg-gray-200'}`}
+                className={`px-6 py-2 rounded-full text-xs font-medium cursor-pointer transition-colors ${!isAnnual ? 'bg-green-500 text-white' : 'text-gray-700 hover:bg-gray-200'}`}
                 onClick={() => toggleBilling(false)}
               >
                 Monthly
               </button>
               <button
-                className={`px-6 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors ${isAnnual ? 'bg-green-500 text-white' : 'text-gray-700 hover:bg-gray-200'}`}
+                className={`px-6 py-2 rounded-full text-xs font-medium cursor-pointer transition-colors ${isAnnual ? 'bg-green-500 text-white' : 'text-gray-700 hover:bg-gray-200'}`}
                 onClick={() => toggleBilling(true)}
               >
                 Annual <span className="text-xs opacity-90">(Save 15%)</span>
@@ -220,19 +220,19 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
           <div className="mt-4">
             {isAnnual ? (
               <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
-                <span className="text-sm opacity-80 line-through mr-2">
+                <span className="text-xs opacity-80 line-through mr-2">
                   ₹{actualMonthlyPrice ? actualMonthlyPrice * 12 : ''}
                 </span>
-                ₹{actualAnnualPrice} <span className="text-sm opacity-80">/yr</span>
-                <p className="text-sm text-green-300 font-medium">
+                ₹{actualAnnualPrice} <span className="text-xs opacity-80">/yr</span>
+                <p className="text-xs text-green-300 font-medium">
                   You save ₹{actualMonthlyPrice ? Math.round(actualMonthlyPrice * 12 - actualAnnualPrice) : 0}
                 </p>
               </div>
             ) : (
               <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
-                <span className="text-sm opacity-80 line-through mr-2">₹{plan.originalMonthlyPrice}</span>
-                ₹{actualMonthlyPrice} <span className="text-sm opacity-80">/mo</span>
-                <p className="text-sm text-green-300 font-medium">You save ₹{plan.originalMonthlyPrice - (actualMonthlyPrice || 0)}</p>
+                <span className="text-xs opacity-80 line-through mr-2">₹{plan.originalMonthlyPrice}</span>
+                ₹{actualMonthlyPrice} <span className="text-xs opacity-80">/mo</span>
+                <p className="text-xs text-green-300 font-medium">You save ₹{plan.originalMonthlyPrice - (actualMonthlyPrice || 0)}</p>
               </div>
             )}
           </div>
@@ -251,11 +251,11 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
       </div>
 
       <div className="border-t border-gray-100 p-6 md:p-8">
-        <p className="font-medium text-gray-800 mb-4">What's included:</p>
+        <p className="font-medium text-gray-800 text-xs mb-4">What's included:</p>
         <ul className="space-y-3">
-          {plan.features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+          {plan.features.map((feature: string, index: number) => (
+            <li key={index} className="flex items-start text-xs">
+              <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
               <span className="text-gray-600">{feature}</span>
             </li>
           ))}
