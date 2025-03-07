@@ -185,9 +185,9 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
   const finalAnnualPrice = originalAnnualPrice ? originalAnnualPrice - discountAmount : null;
   const handleSignup = async (planName: string) => {
     const planUrls: Record<string, string> = {
-      "Starter": "http://127.0.0.1:8001/register/1",
-      "Professional": "http://127.0.0.1:8001/register/3",
-      "Enterprise": "http://127.0.0.1:8001/register/2"
+      "Starter": "https://dev.agoo.in/register/1",
+      "Professional": "https://dev.agoo.in/register/3",
+      "Enterprise": "https://dev.agoo.in/register/2"
     };
     if (planUrls[planName]) {
       window.location.href = planUrls[planName]; // Redirect to the corresponding URL
