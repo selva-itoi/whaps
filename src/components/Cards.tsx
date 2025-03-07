@@ -137,63 +137,69 @@ const ThreeDPhone: React.FC = () => {
     const maxRotation = 15;
     const x = (mousePosition.x / window.innerWidth - 0.5) * maxRotation;
     const y = (mousePosition.y / window.innerHeight - 0.5) * -maxRotation;
-
     return { x, y };
   };
 
   const rotation = calculateRotation();
 
   return (
-    <motion.div
-      className="relative w-full h-80 md:h-96"
-      style={{
-        perspective: 1200
-      }}
-    >
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          rotateX: rotation.y,
-          rotateY: rotation.x
-        }}
-        transition={{ type: "spring", stiffness: 100, damping: 30 }}
-      >
+    <>
+      {/* Mobile View (Separate Style) */}
+      <div className="block md:hidden text-center">
         <img
           src="./gif/gif1.gif"
           alt="WhatsApp on smartphone"
-          className="absolute top-0 left-0 w-full h-full object-contain rounded-xl shadow-xl"
+          className="w-3/4 mx-auto rounded-lg shadow-lg"
         />
+      </div>
 
-
-        {/* 3D Effect Elements */}
-        <div className="absolute inset-0 rounded-xl shadow-inner border border-white/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent rounded-xl"></div>
-
-        {/* Floating Elements */}
+      {/* Larger Screen 3D Effect */}
+      <motion.div
+        className="relative hidden md:block w-full h-80 md:h-96"
+        style={{ perspective: 1200 }}
+      >
         <motion.div
-          className="absolute -top-5 -right-5 bg-white p-3 rounded-lg shadow-lg"
-          animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          className="absolute inset-0"
+          animate={{ rotateX: rotation.y, rotateY: rotation.x }}
+          transition={{ type: "spring", stiffness: 100, damping: 30 }}
         >
-          <div className="flex items-center space-x-2">
-            <div className="h-3 w-3 rounded-full bg-green-500"></div>
-            <span className="text-sm font-medium">99% Delivery Rate</span>
-          </div>
-        </motion.div>
+          <img
+            src="./gif/gif1.gif"
+            alt="WhatsApp on smartphone"
+            className="absolute top-0 left-0 w-full h-full object-contain rounded-xl shadow-xl"
+          />
 
-        <motion.div
-          className="absolute -bottom-5 -left-5 bg-white p-3 rounded-lg shadow-lg"
-          animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
-          transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 0.5 }}
-        >
-          <div className="flex items-center space-x-2">
-            <div className="h-3 w-3 rounded-full bg-blue-500"></div>
-            <span className="text-sm font-medium">Real-time Tracking</span>
-          </div>
+          {/* 3D Effect Elements */}
+          <div className="absolute inset-0 rounded-xl shadow-inner border border-white/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent rounded-xl"></div>
+
+          {/* Floating Elements */}
+          <motion.div
+            className="absolute -top-5 -right-5 bg-white p-3 rounded-lg shadow-lg"
+            animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          >
+            <div className="flex items-center space-x-2">
+              <div className="h-3 w-3 rounded-full bg-green-500"></div>
+              <span className="text-sm font-medium">99% Delivery Rate</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="absolute -bottom-5 -left-5 bg-white p-3 rounded-lg shadow-lg"
+            animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 0.5 }}
+          >
+            <div className="flex items-center space-x-2">
+              <div className="h-3 w-3 rounded-full bg-blue-500"></div>
+              <span className="text-sm font-medium">Real-time Tracking</span>
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   );
 };
+
 
 export default Cards;

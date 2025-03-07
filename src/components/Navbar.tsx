@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +20,6 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Fixed Navbar */}
       <motion.nav
         className="bg-white py-4 px-6 md:px-12 fixed w-full z-50 shadow-sm"
         initial={{ y: -100 }}
@@ -29,20 +27,17 @@ const Navbar: React.FC = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to="/">
+          <a href="/">
             <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
               <MessageCircle className="h-8 w-8 text-green-500" />
               <span className="text-xl font-bold text-gray-800">
                 <span className="text-green-500">Whaps</span>
               </span>
             </motion.div>
-          </Link>
+          </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink to="/">Home</NavLink>
-
-            {/* Services Button to Trigger Hover */}
+            <NavLink href="/">Home</NavLink>
             <div
               className="relative"
               onMouseEnter={() => setShowServicesGrid(true)}
@@ -53,19 +48,17 @@ const Navbar: React.FC = () => {
                 <ChevronDown className="h-4 w-4" />
               </button>
             </div>
-
-            <NavLink to="/#clients">Clients</NavLink>
-            <NavLink to="/#pricing">Pricing</NavLink>
+            <NavLink href="#clients">Clients</NavLink>
+            <NavLink href="#pricing">Pricing</NavLink>
             <motion.button
               className="bg-green-500 text-white px-6 py-2 rounded-full font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started
+              <a href="#pricing">Get Started</a>
             </motion.button>
           </div>
 
-          {/* Mobile Navigation Toggle */}
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -74,7 +67,6 @@ const Navbar: React.FC = () => {
         </div>
       </motion.nav>
 
-      {/* Fixed Full-Width Services Grid (Visible on Hover) */}
       <AnimatePresence>
         {showServicesGrid && (
           <motion.div
@@ -88,32 +80,57 @@ const Navbar: React.FC = () => {
           >
             <div className="max-w-7xl mx-auto grid grid-cols-3 gap-6">
               {services.map((service, index) => (
-                <Link
+                <a
                   key={index}
-                  to={service.path}
+                  href={service.path}
                   className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-green-100 transition"
                 >
-                  <span className="text-2xl">{service.emoji}</span>
                   <span className="ml-3 text-gray-800 font-medium">{service.title}</span>
-                </Link>
+                </a>
               ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Push content down to avoid overlapping */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed top-0 right-0 h-full w-64 bg-white shadow-lg p-6 z-50"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3 }}
+          >
+            <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4">
+              <X size={24} />
+            </button>
+            <div className="mt-10 space-y-6">
+              <NavLink href="/" onClick={() => setIsOpen(false)}>Home</NavLink>
+              <NavLink href="#clients" onClick={() => setIsOpen(false)}>Clients</NavLink>
+              <NavLink href="#pricing" onClick={() => setIsOpen(false)}>Pricing</NavLink>
+              <motion.button
+                className="bg-green-500 text-white px-6 py-2 rounded-full font-medium w-full"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a href="#pricing" onClick={() => setIsOpen(false)}>Get Started</a>
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="h-[80px]"></div>
     </>
   );
 };
 
-// Navigation Link Component
-const NavLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => (
+const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void }> = ({ href, children, onClick }) => (
   <motion.div whileHover={{ scale: 1.1 }}>
-    <Link to={to} className="text-gray-700 hover:text-green-500 font-medium">
+    <a href={href} className="text-gray-700 hover:text-green-500 font-medium" onClick={onClick}>
       {children}
-    </Link>
+    </a>
   </motion.div>
 );
 

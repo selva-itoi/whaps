@@ -32,11 +32,11 @@ const Pricing: React.FC = () => {
       annualPrice: 299 * 12,
       description: "Perfect for small businesses just getting started with WhatsApp marketing.",
       features: [
-        "Up to 100 messages per month",
+        "Up to 1000 messages per month",
         "Contact limit (10)",
-        "Device limit (3)",
+        "Device limit (1)",
         "Basic audience segmentation",
-        "Standard templates",
+        "Standard templates(1)",
         "Basic analytics",
         "Basic API access",
       ],
@@ -48,14 +48,13 @@ const Pricing: React.FC = () => {
       annualPrice: 799 * 12,
       description: "Ideal for growing businesses looking to scale their WhatsApp marketing.",
       features: [
-        "Messages limit (unlimited)",
-        "Contact limit (100)",
-        "Device limit (25)",
-        "Template limit (100)",
-        "Apps limit (10)",
+        "Up to 10000 messages per month",
+        "Contact limit (50)",
+        "Device limit (1)",
+        "Apps limit (1)",
         "Schedule message",
         "Access chat list",
-        "Custom templates",
+        "Standard templates & Custom templates(5)",
         "Email & chat support",
         "Detailed analytics",
         "Full API access",
@@ -69,17 +68,16 @@ const Pricing: React.FC = () => {
       annualPrice: 1499 * 12,
       description: "For large organizations requiring advanced features and dedicated support.",
       features: [
-        "Messages limit (unlimited)",
-        "Contact limit (unlimited)",
-        "Device limit (unlimited)",
-        "Template limit (unlimited)",
-        "Apps limit (unlimited)",
+        "Up to 50000 messages per month",
+        "Contact limit (1000)",
+        "Device limit (3)",
+        "Apps limit (3)",
         "Chatbot",
         "Bulk message",
         "Schedule message",
         "Access chat list",
         "Access group list",
-        "Custom templates & workflows",
+        "Standard templates & Custom templates",
         "Full API access",
         "Priority support",
         "Dedicated account manager",
@@ -202,9 +200,6 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       whileHover={{ y: -10 }}
-      drag
-      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      dragElastic={0.1}
     >
       {plan.popular && (
         <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
