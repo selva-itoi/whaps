@@ -140,9 +140,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author, positi
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
-      drag
-      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      dragElastic={0.1}
     >
       <div className="flex mb-4">
         {[...Array(5)].map((_, i) => (
