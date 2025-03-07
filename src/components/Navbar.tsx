@@ -8,15 +8,15 @@ const Navbar: React.FC = () => {
   const [showServicesGrid, setShowServicesGrid] = useState(false);
 
   const services = [
-    { title: "Chatbot", path: "/services/chatbot", emoji: "🤖" },
-    { title: "Bulk Messaging", path: "/services/bulk-messaging", emoji: "📤" },
-    { title: "Scheduled Messaging", path: "/services/scheduled-messaging", emoji: "⏳" },
-    { title: "Message Logs", path: "/services/message-logs", emoji: "📊" },
-    { title: "Device Management", path: "/services/device-management", emoji: "📱" },
-    { title: "Message Templates", path: "/services/message-templates", emoji: "📝" },
-    { title: "Webhook Integration", path: "/services/webhook-integration", emoji: "🔗" },
-    { title: "Contact Book", path: "/services/contact-book", emoji: "📖" },
-    { title: "API Authentication", path: "/services/api-authentication", emoji: "🔐" },
+    { title: "Chatbot", path: "/services/chatbot" },
+    { title: "Bulk Messaging", path: "/services/bulk-messaging" },
+    { title: "Scheduled Messaging", path: "/services/scheduled-messaging" },
+    { title: "Message Logs", path: "/services/message-logs" },
+    { title: "Device Management", path: "/services/device-management" },
+    { title: "Message Templates", path: "/services/message-templates" },
+    { title: "Webhook Integration", path: "/services/webhook-integration" },
+    { title: "Contact Book", path: "/services/contact-book" },
+    { title: "API Authentication", path: "/services/api-authentication" },
   ];
 
   return (
