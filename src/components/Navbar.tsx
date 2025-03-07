@@ -28,13 +28,21 @@ const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <a href="/">
-            <motion.div className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
-              <MessageCircle className="h-8 w-8 text-green-500" />
+            <motion.div
+              className="flex items-center space-x-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}img/logo.jpg`}
+                alt="Whaps Logo"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              />
               <span className="text-xl font-bold text-gray-800">
                 <span className="text-green-500">Whaps</span>
               </span>
             </motion.div>
           </a>
+
 
           <div className="hidden md:flex items-center space-x-8">
             <NavLink href="/">Home</NavLink>
