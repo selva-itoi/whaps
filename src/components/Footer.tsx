@@ -4,7 +4,6 @@ import {
   Instagram,
   Facebook,
   Linkedin,
-  Youtube,
   MessageCircle,
   Heart,
   Phone,
@@ -25,8 +24,6 @@ const navigation = {
           name: "Company",
           items: [
             { name: "About Us", href: "#" },
-            { name: "Our Team", href: "#" },
-            { name: "Careers", href: "#" },
           ],
         },
         {
@@ -34,7 +31,6 @@ const navigation = {
           name: "Services",
           items: [
             { name: "Bulk Messaging", href: "#services" },
-            { name: "Audience Segmentation", href: "#services" },
             { name: "Analytics & Reporting", href: "#services" },
           ],
         },
@@ -48,21 +44,12 @@ const navigation = {
           ],
         },
         {
-          id: "resources",
-          name: "Resources",
-          items: [
-            { name: "Blog", href: "#" },
-            { name: "Case Studies", href: "#clients" },
-            { name: "Documentation", href: "#" },
-          ],
-        },
-        {
           id: "pricing",
           name: "Pricing",
           items: [
             { name: "Plans", href: "#pricing" },
             { name: "Enterprise", href: "#pricing" },
-            { name: "Compare", href: "#pricing" },
+            { name: "Professional", href: "#pricing" },
           ],
         },
         {
@@ -71,7 +58,6 @@ const navigation = {
           items: [
             { name: "Privacy Policy", href: "#" },
             { name: "Terms of Service", href: "#" },
-            { name: "GDPR Compliance", href: "#" },
           ],
         },
       ],
@@ -141,7 +127,7 @@ const Footer: React.FC = () => {
           </a>
           <a
             aria-label="Twitter"
-            href="#"
+            href="https://www.twitter.com/"
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -150,7 +136,7 @@ const Footer: React.FC = () => {
           </a>
           <a
             aria-label="Instagram"
-            href="#"
+            href="https://www.instagram.com/agootechnologies?igsh=MXRmN3A2enJ4bTdvcw=="
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -159,7 +145,7 @@ const Footer: React.FC = () => {
           </a>
           <a
             aria-label="WhatsApp"
-            href="#"
+            href="https://wa.me/+91 89034 89173"
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -168,7 +154,7 @@ const Footer: React.FC = () => {
           </a>
           <a
             aria-label="Facebook"
-            href="#"
+            href="https://www.facebook.com/share/p/12HDAjq5McV/"
             rel="noreferrer"
             target="_blank"
             className={Underline}
@@ -177,22 +163,14 @@ const Footer: React.FC = () => {
           </a>
           <a
             aria-label="LinkedIn"
-            href="#"
+            href="https://www.linkedin.com/company/itoi-technologies/"
             rel="noreferrer"
             target="_blank"
             className={Underline}
           >
             <Linkedin className="h-5 w-5" />
           </a>
-          <a
-            aria-label="YouTube"
-            href="#"
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Youtube className="h-5 w-5" />
-          </a>
+
         </div>
         <ThemeToggle />
       </div>
@@ -205,11 +183,13 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex items-center">
             <Phone className="h-4 w-4 text-green-500 mr-2" />
-            <span>+1 (555) 123-4567</span>
+            <span>+91 89034 89173</span>
           </div>
           <div className="flex items-center">
             <MapPin className="h-4 w-4 text-green-500 mr-2" />
-            <span>123 Business Avenue, Suite 500, San Francisco, CA 94107</span>
+            <span>Floor No 2, 103, 104, Subash Street
+              Vadasery, Kamarjapuram, Nagercoil,
+              Kanniyakumari, TamilNadu, 629001</span>
           </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-1 text-gray-600">
