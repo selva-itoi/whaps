@@ -56,14 +56,14 @@ const Navbar: React.FC = () => {
                 <ChevronDown className="h-4 w-4" />
               </button>
             </div>
-            <NavLink href="#clients">Clients</NavLink>
-            <NavLink href="#pricing">Pricing</NavLink>
+            <NavLink href="/clients">Clients</NavLink>
+            <NavLink href="/pricing">Pricing</NavLink>
             <motion.button
               className="bg-green-500 text-white px-6 py-2 rounded-full font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a href="#pricing">Get Started</a>
+              <a href="/pricing">Get Started</a>
             </motion.button>
           </div>
 
@@ -115,14 +115,14 @@ const Navbar: React.FC = () => {
             </button>
             <div className="mt-10 space-y-6">
               <NavLink href="/" onClick={() => setIsOpen(false)}>Home</NavLink>
-              <NavLink href="#clients" onClick={() => setIsOpen(false)}>Clients</NavLink>
-              <NavLink href="#pricing" onClick={() => setIsOpen(false)}>Pricing</NavLink>
+              <NavLink href="/clients" onClick={() => setIsOpen(false)}>Clients</NavLink>
+              <NavLink href="/pricing" onClick={() => setIsOpen(false)}>Pricing</NavLink>
               <motion.button
                 className="bg-green-500 text-white px-6 py-2 rounded-full font-medium w-full"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a href="#pricing" onClick={() => setIsOpen(false)}>Get Started</a>
+                <a href="/pricing" onClick={() => setIsOpen(false)}>Get Started</a>
               </motion.button>
             </div>
           </motion.div>

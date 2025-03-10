@@ -46,6 +46,8 @@ function App() {
                   </div>
                 }
               />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="/pricing" element={<Pricing />} />
               <Route path="/services/bulk-messaging" element={<BulkMessaging />} />
               <Route path="/services/chatbot" element={<Chatbot />} />
               <Route path="/services/scheduled-messaging" element={<ScheduledMessaging />} />

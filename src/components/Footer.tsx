@@ -38,8 +38,6 @@ const navigation = {
           id: "features",
           name: "Features",
           items: [
-            { name: "Automated Campaigns", href: "#services" },
-            { name: "Compliance & Security", href: "#services" },
             { name: "API Integration", href: "#" },
           ],
         },
@@ -187,9 +185,8 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex items-center">
             <MapPin className="h-4 w-4 text-green-500 mr-2" />
-            <span>Floor No 2, 103, 104, Subash Street
-              Vadasery, Kamarjapuram, Nagercoil,
-              Kanniyakumari, TamilNadu, 629001</span>
+            <span>Nagercoil,
+              Kanniyakumari, India</span>
           </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-1 text-gray-600">
