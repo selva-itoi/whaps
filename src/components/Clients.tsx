@@ -5,32 +5,32 @@ import { Star } from 'lucide-react';
 const Clients: React.FC = () => {
   const clients = [
     {
-      name: "Acme Corporation",
-      logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+      name: "Gospel Echoing Missionary Society( GEMS )",
+      logo: "https://dev.gemsbihar.info/assets/images/logo.png",
       quote: "Whaps has transformed how we communicate with our customers. We've seen a 40% increase in engagement since implementing their platform.",
-      author: "Jane Smith",
-      position: "Marketing Director"
+      author: "",
+      position: ""
     },
     {
-      name: "TechNova",
-      logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+      name: "Tele Doctor",
+      logo: "https://dev.teledoctor.life/_next/static/media/logo.8ef8d9c0.svg",
       quote: "The analytics and targeting capabilities have helped us deliver personalized messages that resonate with our audience. Highly recommended!",
-      author: "Michael Johnson",
-      position: "CEO"
+      author: "Dr Rajesh Duthie",
+      position: "Director"
     },
     {
-      name: "Global Retail",
-      logo: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      name: "INDIAN ASSOCIATION OF ORAL IMPLANTOLOGISTS ( IAOI )",
+      logo: "https://iaoi.in//assets/img/IAOI_Logo_PNG.png",
       quote: "We've been able to automate our customer service responses and promotional campaigns, saving time and increasing customer satisfaction.",
-      author: "Sarah Williams",
-      position: "Customer Experience Manager"
+      author: "Dr Johnson Raja James",
+      position: "Board Member"
     },
     {
-      name: "HealthPlus",
-      logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      name: "Inherit Initiative ( IIM )",
+      logo: "https://inheritinitiative.org/assets/img/iim-logo.png",
       quote: "The platform's compliance features ensure we maintain patient privacy while still delivering timely appointment reminders and follow-ups.",
-      author: "Dr. Robert Chen",
-      position: "Operations Director"
+      author: "Dr Rajesh Duthie",
+      position: "Director"
     },
   ];
 
