@@ -1,0 +1,30 @@
+
+# netlify.toml
+# Configuration file for Netlify deployment
+
+# Build settings
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Headers for specific paths
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "text/javascript"
+
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Content-Type = "text/javascript"
+
+[[headers]]
+  for = "/assets/*.js"
+  [headers.values]
+    Content-Type = "text/javascript"
+
+# Handle SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
