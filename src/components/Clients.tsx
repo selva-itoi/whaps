@@ -109,13 +109,15 @@ const Clients: React.FC = () => {
                 Start your journey with Whaps today and see the difference in your customer engagement.
               </p>
             </div>
-            <motion.button
-              className="bg-green-500 text-white px-8 py-3 rounded-full font-medium text-lg whitespace-nowrap"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started Free
-            </motion.button>
+            <a href="/pricing">
+              <motion.button
+                className="bg-green-500 text-white px-8 py-3 rounded-full font-medium text-lg whitespace-nowrap"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started Free
+              </motion.button>
+            </a>
           </div>
         </motion.div>
       </div>

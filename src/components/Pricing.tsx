@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -197,71 +198,84 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
   };
 
   return (
-    <motion.div
-      className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow relative ${plan.popular ? 'border-2 border-green-500' : 'border border-gray-100'}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      viewport={{ once: true }}
-      whileHover={{ y: -10 }}
-    >
-      {plan.popular && (
-        <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-          MOST POPULAR
-        </div>
-      )}
-
-      <div className="p-6 md:p-8">
-        <h3 className="text-xl font-bold text-gray-800">{plan.name}</h3>
-        <p className="mt-2 text-gray-600">{plan.description}</p>
-
-        {/* Pricing Display */}
-        {!plan.custom ? (
-          <div className="mt-4">
-            {isAnnual ? (
-              <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
-                <span className="text-xs opacity-80 line-through mr-2">
-                  ₹{actualMonthlyPrice ? actualMonthlyPrice * 12 : ''}
-                </span>
-                ₹{actualAnnualPrice} <span className="text-xs opacity-80">/yr</span>
-                <p className="text-xs text-green-300 font-medium">
-                  You save ₹{actualMonthlyPrice ? Math.round(actualMonthlyPrice * 12 - actualAnnualPrice) : 0}
-                </p>
-              </div>
-            ) : (
-              <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
-                <span className="text-xs opacity-80 line-through mr-2">₹{plan.originalMonthlyPrice}</span>
-                ₹{actualMonthlyPrice} <span className="text-xs opacity-80">/mo</span>
-                <p className="text-xs text-green-300 font-medium">You save ₹{plan.originalMonthlyPrice - (actualMonthlyPrice || 0)}</p>
-              </div>
-            )}
+    <>
+      <Helmet>
+        <title>Pricing Plans - Affordable WhatsApp Marketing</title>
+        <meta name="description" content="Compare our pricing plans and choose the best option for your business. Affordable WhatsApp marketing solutions for small to enterprise businesses." />
+        <meta name="keywords" content="WhatsApp marketing, pricing, affordable plans, business messaging" />
+        <meta property="og:title" content="Pricing Plans - Affordable WhatsApp Marketing" />
+        <meta property="og:description" content="Choose the best WhatsApp marketing plan for your business. No hidden fees, simple pricing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://whaps.in/img/logo.jpg" />
+        <meta property="og:url" content="https://whaps.in/pricing" />
+      </Helmet>
+      <motion.div
+        className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow relative ${plan.popular ? 'border-2 border-green-500' : 'border border-gray-100'}`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay }}
+        viewport={{ once: true }}
+        whileHover={{ y: -10 }}
+      >
+        {plan.popular && (
+          <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+            MOST POPULAR
           </div>
-        ) : (
-          <div className="mt-4 invisible">&nbsp;</div> // Keeps the space but hides the content
         )}
 
-        <motion.button
-          className={`mt-6 w-full py-3 rounded-lg font-medium ${plan.popular ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => handleSignup(plan.name)}
-        >
-          {plan.custom ? "Contact Us" : 'Start Free 14 Trial'}
-        </motion.button>
-      </div>
+        <div className="p-6 md:p-8">
+          <h3 className="text-xl font-bold text-gray-800">{plan.name}</h3>
+          <p className="mt-2 text-gray-600">{plan.description}</p>
 
-      <div className="border-t border-gray-100 p-6 md:p-8">
-        <p className="font-medium text-gray-800 text-xs mb-4">What's included:</p>
-        <ul className="space-y-3">
-          {plan.features.map((feature: string, index: number) => (
-            <li key={index} className="flex items-start text-xs">
-              <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-600">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
+          {/* Pricing Display */}
+          {!plan.custom ? (
+            <div className="mt-4">
+              {isAnnual ? (
+                <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
+                  <span className="text-xs opacity-80 line-through mr-2">
+                    ₹{actualMonthlyPrice ? actualMonthlyPrice * 12 : ''}
+                  </span>
+                  ₹{actualAnnualPrice} <span className="text-xs opacity-80">/yr</span>
+                  <p className="text-xs text-green-300 font-medium">
+                    You save ₹{actualMonthlyPrice ? Math.round(actualMonthlyPrice * 12 - actualAnnualPrice) : 0}
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-gray-900 text-white text-lg font-bold px-4 py-2 rounded-lg shadow-md inline-block">
+                  <span className="text-xs opacity-80 line-through mr-2">₹{plan.originalMonthlyPrice}</span>
+                  ₹{actualMonthlyPrice} <span className="text-xs opacity-80">/mo</span>
+                  <p className="text-xs text-green-300 font-medium">You save ₹{plan.originalMonthlyPrice - (actualMonthlyPrice || 0)}</p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="mt-4 invisible">&nbsp;</div> // Keeps the space but hides the content
+          )}
+
+          <motion.button
+            className={`mt-6 w-full py-3 rounded-lg font-medium ${plan.popular ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => handleSignup(plan.name)}
+          >
+            {plan.custom ? "Contact Us" : 'Start Free 14 Trial'}
+          </motion.button>
+        </div>
+
+        <div className="border-t border-gray-100 p-6 md:p-8">
+          <p className="font-medium text-gray-800 text-xs mb-4">What's included:</p>
+          <ul className="space-y-3">
+            {plan.features.map((feature: string, index: number) => (
+              <li key={index} className="flex items-start text-xs">
+                <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-600">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+    </>
+
   );
 };
 
