@@ -4,6 +4,7 @@ import { useMouseContext } from "../context/MouseContext";
 import { MessageSquare, Send, Users, X } from "lucide-react";
 import useMeasure from "react-use-measure";
 import { Helmet } from "react-helmet-async";
+import { t } from "i18next";
 
 const Hero: React.FC = () => {
   const { mousePosition } = useMouseContext();
@@ -23,15 +24,35 @@ const Hero: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Hero Section | Whaps</title>
-        <meta name="description" content="Reach your customers instantly with WhatsApp Marketing." />
-        <meta name="keywords" content="WhatsApp, Marketing, Messaging, Engagement, WhatsApp Api, Bulk message" />
-        <meta property="og:title" content="Hero Section | Whaps" />
-        <meta property="og:description" content="Connect with your audience directly through WhatsApp. Send personalized messages, promotions, and updates to boost engagement and drive conversions." />
-        <meta property="og:image" content="https://whaps.in/img/logo.jpg" />
-        <meta property="og:url" content="https://whaps.in" />
-      </Helmet>
+      <Helmet
+        title={t`Whaps - Instant WhatsApp Marketing Solutions`}
+        meta={[
+          {
+            name: "description",
+            content: t`Reach your customers instantly with WhatsApp Marketing.`,
+          },
+          {
+            name: "keywords",
+            content: t`WhatsApp, Marketing, Messaging, Engagement, WhatsApp API, Bulk message`,
+          },
+          {
+            property: "og:title",
+            content: t`Hero Section | Whaps`,
+          },
+          {
+            property: "og:description",
+            content: t`Connect with your audience directly through WhatsApp. Send personalized messages, promotions, and updates to boost engagement and drive conversions.`,
+          },
+          {
+            property: "og:image",
+            content: "https://whaps.in/img/logo.jpg",
+          },
+          {
+            property: "og:url",
+            content: "https://whaps.in",
+          },
+        ]}
+      />
       <section id="home" className="pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
@@ -43,6 +64,7 @@ const Hero: React.FC = () => {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
                 Reach Your Customers <span className="text-green-500">Instantly</span> with WhatsApp
+                <span className="text-gray-600"> - Your Marketing Partner</span>
               </h1>
               <p className="mt-6 text-lg text-gray-600">
                 Connect with your audience directly through WhatsApp. Send personalized messages,

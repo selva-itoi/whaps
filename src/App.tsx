@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BottomNav from "./components/BottomNav";
@@ -57,6 +57,7 @@ function App() {
               <Route path="/services/webhook-integration" element={<WebhookIntegration />} />
               <Route path="/services/contact-book" element={<ContactBook />} />
               <Route path="/services/api-authentication" element={<ApiAuthentication />} />
+              <Route path="*" element={<Navigate to="/404.html" />} />
             </Routes>
           </Suspense>
           <Footer />

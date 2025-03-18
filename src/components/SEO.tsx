@@ -13,7 +13,7 @@ export default function SEO({
     description,
     keywords = [],
     ogImage = 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e',
-    ogUrl = 'https://your-domain.com'
+    ogUrl = 'https://whaps.in'
 }: SEOProps) {
     const formattedTitle = `${title} | Whaps`;
 

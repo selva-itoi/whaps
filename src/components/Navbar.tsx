@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +20,6 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Navbar | Whaps</title>
-        <meta name="description" content="Explore our services including chatbot, bulk messaging, scheduled messaging, and more." />
-        <meta name="keywords" content="WhatsApp, chatbot, bulk messaging, API, automation" />
-        <meta property="og:title" content="Navbar | Whaps" />
-        <meta property="og:description" content="Discover our services for WhatsApp automation and customer engagement." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://whaps.in/img/logo.jpg" />
-        <meta property="og:url" content="https://whaps.in" />
-      </Helmet>
       <motion.nav
         className="bg-white py-4 px-6 md:px-12 fixed w-full z-50 shadow-sm"
         initial={{ y: -100 }}

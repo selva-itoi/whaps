@@ -10,6 +10,7 @@ import {
   MapPin
 } from "lucide-react";
 import ThemeToggle from "./ui/theme-toggle";
+import { Helmet } from "react-helmet-async";
 
 const Underline = `hover:-translate-y-1 border border-dotted border-gray-200 rounded-xl p-2.5 transition-transform hover:border-green-300 hover:text-green-500`;
 
@@ -65,154 +66,160 @@ const navigation = {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="border-ali/20 :px-4 mx-auto w-full border-b border-t border-gray-100 bg-gray-50 px-2">
-      <div className="relative mx-auto grid max-w-7xl items-center justify-center gap-6 p-10 pb-0 md:flex">
-        <a href="#home">
-          <p className="flex items-center justify-center rounded-full">
-            <MessageCircle className="w-8 h-8 text-green-500" />
+    <>
+      <Helmet>
+        <title>Footer - Whaps</title>
+        <meta name="description" content="Footer section of the Whaps website, providing contact information and links." />
+      </Helmet>
+      <footer className="border-ali/20 :px-4 mx-auto w-full border-b border-t border-gray-100 bg-gray-50 px-2">
+        <div className="relative mx-auto grid max-w-7xl items-center justify-center gap-6 p-10 pb-0 md:flex">
+          <a href="#home">
+            <p className="flex items-center justify-center rounded-full">
+              <MessageCircle className="w-8 h-8 text-green-500" />
+            </p>
+          </a>
+          <p className="bg-transparent text-center text-xs leading-4 text-gray-600 md:text-left">
+            Welcome to Whaps, the leading WhatsApp marketing platform for businesses looking to connect with their customers effectively. Our platform offers unique advantages that help businesses engage with their audience through WhatsApp. Send personalized messages, promotions, and updates to boost engagement and drive conversions. With high deliverability rates, detailed analytics, and compliance features, we ensure your WhatsApp marketing campaigns are successful and compliant with all regulations.
           </p>
-        </a>
-        <p className="bg-transparent text-center text-xs leading-4 text-gray-600 md:text-left">
-          Welcome to Whaps, the leading WhatsApp marketing platform for businesses looking to connect with their customers effectively. Our platform offers unique advantages that help businesses engage with their audience through WhatsApp. Send personalized messages, promotions, and updates to boost engagement and drive conversions. With high deliverability rates, detailed analytics, and compliance features, we ensure your WhatsApp marketing campaigns are successful and compliant with all regulations.
-        </p>
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 py-10">
-        <div className="border-b border-dotted border-gray-200"></div>
-        <div className="py-10">
-          {navigation.categories.map((category) => (
-            <div
-              key={category.name}
-              className="grid grid-cols-3 flex-row justify-between gap-6 leading-6 md:flex"
-            >
-              {category.sections.map((section) => (
-                <div key={section.name}>
-                  <h3 className="font-medium text-gray-800 mb-3 text-sm">{section.name}</h3>
-                  <ul
-                    role="list"
-                    aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                    className="flex flex-col space-y-2"
-                  >
-                    {section.items.map((item) => (
-                      <li key={item.name} className="flow-root">
-                        <a
-                          href={item.href}
-                          className="text-sm text-gray-600 hover:text-green-500 transition-colors md:text-xs"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
         </div>
-        <div className="border-b border-dotted border-gray-200"></div>
-      </div>
 
-      <div className="flex flex-wrap justify-center gap-y-6">
-        <div className="flex flex-wrap items-center justify-center gap-6 gap-y-4 px-6">
-          <a
-            aria-label="Email"
-            href="mailto:info@whaps.in"
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Mail strokeWidth={1.5} className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="Twitter"
-            href="https://www.twitter.com/"
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Twitter className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="Instagram"
-            href="https://www.instagram.com/agootechnologies?igsh=MXRmN3A2enJ4bTdvcw=="
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="WhatsApp"
-            href="https://wa.me/+91 89034 89173"
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <MessageCircle className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="Facebook"
-            href="https://www.facebook.com/share/p/12HDAjq5McV/"
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Facebook className="h-5 w-5" />
-          </a>
-          <a
-            aria-label="LinkedIn"
-            href="https://www.linkedin.com/company/itoi-technologies/"
-            rel="noreferrer"
-            target="_blank"
-            className={Underline}
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-
+        <div className="mx-auto max-w-7xl px-6 py-10">
+          <div className="border-b border-dotted border-gray-200"></div>
+          <div className="py-10">
+            {navigation.categories.map((category) => (
+              <div
+                key={category.name}
+                className="grid grid-cols-3 flex-row justify-between gap-6 leading-6 md:flex"
+              >
+                {category.sections.map((section) => (
+                  <div key={section.name}>
+                    <h3 className="font-medium text-gray-800 mb-3 text-sm">{section.name}</h3>
+                    <ul
+                      role="list"
+                      aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
+                      className="flex flex-col space-y-2"
+                    >
+                      {section.items.map((item) => (
+                        <li key={item.name} className="flow-root">
+                          <a
+                            href={item.href}
+                            className="text-sm text-gray-600 hover:text-green-500 transition-colors md:text-xs"
+                          >
+                            {item.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="border-b border-dotted border-gray-200"></div>
         </div>
-        <ThemeToggle />
-      </div>
 
-      <div className="mx-auto mb-10 mt-10 flex flex-col justify-between text-center text-xs md:max-w-7xl">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-gray-600 mb-4">
-          <div className="flex items-center">
-            <Mail className="h-4 w-4 text-green-500 mr-2" />
-            <span>info@whaps.in</span>
-          </div>
-          <div className="flex items-center">
-            <Phone className="h-4 w-4 text-green-500 mr-2" />
-            <span>+91 89034 89173</span>
-          </div>
-          <div className="flex items-center">
-            <MapPin className="h-4 w-4 text-green-500 mr-2" />
-            <span>Nagercoil,
-              Kanniyakumari, India</span>
-          </div>
-        </div>
-        <div className="flex flex-row items-center justify-center gap-1 text-gray-600">
-          <span>©</span>
-          <span>{new Date().getFullYear()}</span>
-          <span>Made with</span>
-          <Heart className="text-green-500 mx-1 h-4 w-4 animate-pulse" />
-          <span>by</span>
-          <span className="cursor-pointer text-gray-800 font-medium hover:text-green-500 transition-colors">
+        <div className="flex flex-wrap justify-center gap-y-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 gap-y-4 px-6">
             <a
-              aria-label="Whaps"
-              className="font-bold"
-              href="#"
+              aria-label="Email"
+              href="mailto:info@whaps.in"
+              rel="noreferrer"
+              target="_blank"
+              className={Underline}
             >
-              Whaps
+              <Mail strokeWidth={1.5} className="h-5 w-5" />
             </a>
-          </span>
-          <span>-</span>
-          <span className="cursor-pointer text-gray-600 hover:text-green-500 transition-colors">
-            <a aria-label="Home" href="#home">
-              All Rights Reserved
+            <a
+              aria-label="Twitter"
+              href="https://www.twitter.com/"
+              rel="noreferrer"
+              target="_blank"
+              className={Underline}
+            >
+              <Twitter className="h-5 w-5" />
             </a>
-          </span>
+            <a
+              aria-label="Instagram"
+              href="https://www.instagram.com/agootechnologies?igsh=MXRmN3A2enJ4bTdvcw=="
+              rel="noreferrer"
+              target="_blank"
+              className={Underline}
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              aria-label="WhatsApp"
+              href="https://wa.me/+91 89034 89173"
+              rel="noreferrer"
+              target="_blank"
+              className={Underline}
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
+            <a
+              aria-label="Facebook"
+              href="https://www.facebook.com/share/p/12HDAjq5McV/"
+              rel="noreferrer"
+              target="_blank"
+              className={Underline}
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              aria-label="LinkedIn"
+              href="https://www.linkedin.com/company/itoi-technologies/"
+              rel="noreferrer"
+              target="_blank"
+              className={Underline}
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+
+          </div>
+          <ThemeToggle />
         </div>
-      </div>
-    </footer>
+
+        <div className="mx-auto mb-10 mt-10 flex flex-col justify-between text-center text-xs md:max-w-7xl">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-gray-600 mb-4">
+            <div className="flex items-center">
+              <Mail className="h-4 w-4 text-green-500 mr-2" />
+              <span>info@whaps.in</span>
+            </div>
+            <div className="flex items-center">
+              <Phone className="h-4 w-4 text-green-500 mr-2" />
+              <span>+91 89034 89173</span>
+            </div>
+            <div className="flex items-center">
+              <MapPin className="h-4 w-4 text-green-500 mr-2" />
+              <span>Nagercoil,
+                Kanniyakumari, India</span>
+            </div>
+          </div>
+          <div className="flex flex-row items-center justify-center gap-1 text-gray-600">
+            <span>©</span>
+            <span>{new Date().getFullYear()}</span>
+            <span>Made with</span>
+            <Heart className="text-green-500 mx-1 h-4 w-4 animate-pulse" />
+            <span>by</span>
+            <span className="cursor-pointer text-gray-800 font-medium hover:text-green-500 transition-colors">
+              <a
+                aria-label="Whaps"
+                className="font-bold"
+                href="#"
+              >
+                Whaps
+              </a>
+            </span>
+            <span>-</span>
+            <span className="cursor-pointer text-gray-600 hover:text-green-500 transition-colors">
+              <a aria-label="Home" href="#home">
+                All Rights Reserved
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
 

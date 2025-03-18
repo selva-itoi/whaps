@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { t } from "i18next";
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -199,16 +200,40 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isAnnual, delay }) => {
 
   return (
     <>
-      <Helmet>
-        <title>Pricing Plans - Affordable WhatsApp Marketing</title>
-        <meta name="description" content="Compare our pricing plans and choose the best option for your business. Affordable WhatsApp marketing solutions for small to enterprise businesses." />
-        <meta name="keywords" content="WhatsApp marketing, pricing, affordable plans, business messaging" />
-        <meta property="og:title" content="Pricing Plans - Affordable WhatsApp Marketing" />
-        <meta property="og:description" content="Choose the best WhatsApp marketing plan for your business. No hidden fees, simple pricing." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://whaps.in/img/logo.jpg" />
-        <meta property="og:url" content="https://whaps.in/pricing" />
-      </Helmet>
+      <Helmet
+        title={t`Pricing Plans - Affordable WhatsApp Marketing`}
+        meta={[
+          {
+            name: "description",
+            content: t`Compare our pricing plans and choose the best option for your business. Get cost-effective WhatsApp marketing solutions tailored for businesses of all sizes.`,
+          },
+          {
+            name: "keywords",
+            content: t`WhatsApp marketing, pricing, affordable plans, business messaging, bulk messaging, automation`,
+          },
+          {
+            property: "og:title",
+            content: t`Pricing Plans - Affordable WhatsApp Marketing`,
+          },
+          {
+            property: "og:description",
+            content: t`Find the perfect WhatsApp marketing plan with transparent pricing and no hidden fees. Scalable solutions for startups to enterprises.`,
+          },
+          {
+            property: "og:type",
+            content: "website",
+          },
+          {
+            property: "og:image",
+            content: "https://whaps.in/img/logo.jpg",
+          },
+          {
+            property: "og:url",
+            content: "https://whaps.in/pricing",
+          },
+        ]}
+      />
+
       <motion.div
         className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow relative ${plan.popular ? 'border-2 border-green-500' : 'border border-gray-100'}`}
         initial={{ opacity: 0, y: 20 }}

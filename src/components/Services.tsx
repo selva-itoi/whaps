@@ -15,16 +15,45 @@ import {
 } from 'lucide-react';
 import { useMouseContext } from '../context/MouseContext';
 import { Helmet } from 'react-helmet-async';
+import { t } from "i18next";
 
 const Services: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Our Services - WhatsApp Marketing Solutions</title>
-        <meta name="description" content="Explore our comprehensive WhatsApp marketing services, including chatbots, bulk messaging, scheduled messages, and API integration." />
-        <meta name="keywords" content="WhatsApp marketing, chatbot, bulk messaging, API integration, customer engagement" />
-        <meta name="author" content="Whaps" />
-      </Helmet>
+      <Helmet
+        title={t`Our Services - WhatsApp Marketing Solutions`}
+        meta={[
+          {
+            name: "description",
+            content: t`Discover our powerful WhatsApp marketing solutions, including AI-driven chatbots, bulk messaging, automated scheduling, and seamless API integration.`,
+          },
+          {
+            name: "keywords",
+            content: t`WhatsApp marketing, AI chatbots, bulk messaging, automated scheduling, API integration, customer engagement`,
+          },
+          {
+            name: "author",
+            content: "Whaps",
+          },
+          {
+            property: "og:title",
+            content: t`Our Services | Whaps`,
+          },
+          {
+            property: "og:description",
+            content: t`Maximize customer engagement with our WhatsApp marketing services, featuring chatbots, bulk messaging, and automation tools.`,
+          },
+          {
+            property: "og:image",
+            content: "https://whaps.in/img/logo.jpg",
+          },
+          {
+            property: "og:url",
+            content: "https://whaps.in/services",
+          },
+        ]}
+      />
+
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
@@ -44,66 +73,86 @@ const Services: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard
-              icon={<MessageSquare className="h-10 w-10 text-green-500" />}
-              title="Chatbot (Auto Reply)"
-              description="Automate responses to messages efficiently, saving time and ensuring customers get immediate assistance."
-              delay={0.1}
-            />
-            <ServiceCard
-              icon={<Users className="h-10 w-10 text-blue-500" />}
-              title="Bulk Messaging"
-              description="Send personalized messages to multiple contacts simultaneously with high deliverability rates."
-              delay={0.2}
-            />
-            <ServiceCard
-              icon={<Clock className="h-10 w-10 text-purple-500" />}
-              title="Scheduled Messaging"
-              description="Plan and automate message delivery at optimal times to maximize engagement and response rates."
-              delay={0.3}
-            />
-            <ServiceCard
-              icon={<BarChart className="h-10 w-10 text-yellow-500" />}
-              title="Message Logs & Tracking"
-              description="Monitor sent and received messages with detailed analytics on delivery, open rates, and conversions."
-              delay={0.4}
-            />
-            <ServiceCard
-              icon={<Smartphone className="h-10 w-10 text-red-500" />}
-              title="Device Management"
-              description="Connect and manage multiple devices from a single dashboard for seamless campaign execution."
-              delay={0.5}
-            />
-            <ServiceCard
-              icon={<FileText className="h-10 w-10 text-indigo-500" />}
-              title="Message Templates"
-              description="Save and reuse message formats for efficiency and consistent brand communication."
-              delay={0.6}
-            />
-            <ServiceCard
-              icon={<Webhook className="h-10 w-10 text-pink-500" />}
-              title="Webhook Integration"
-              description="Seamless API and webhook support to integrate WhatsApp messaging with your existing business systems."
-              delay={0.7}
-            />
-            <ServiceCard
-              icon={<BookOpen className="h-10 w-10 text-teal-500" />}
-              title="Contact Book"
-              description="Organize and manage your contact list easily with advanced segmentation and tagging capabilities."
-              delay={0.8}
-            />
-            <ServiceCard
-              icon={<Key className="h-10 w-10 text-amber-500" />}
-              title="API Authentication"
-              description="Secure your integrations with robust authentication mechanisms and API keys for safe data exchange."
-              delay={0.9}
-            />
-            <ServiceCard
-              icon={<LayoutDashboard className="h-10 w-10 text-cyan-500" />}
-              title="User-Friendly Dashboard"
-              description="Get comprehensive insights and analytics on usage, campaign performance, and customer engagement."
-              delay={1.0}
-            />
+            <a href="/services/chatbot">
+              <ServiceCard
+                icon={<MessageSquare className="h-10 w-10 text-green-500" />}
+                title="Chatbot (Auto Reply)"
+                description="Automate responses to messages efficiently, saving time and ensuring customers get immediate assistance."
+                delay={0.1}
+              />
+            </a>
+            <a href="/services/bulk-messaging">
+              <ServiceCard
+                icon={<Users className="h-10 w-10 text-blue-500" />}
+                title="Bulk Messaging"
+                description="Send personalized messages to multiple contacts simultaneously with high deliverability rates."
+                delay={0.2}
+              />
+            </a>
+            <a href="/services/scheduled-messaging">
+              <ServiceCard
+                icon={<Clock className="h-10 w-10 text-purple-500" />}
+                title="Scheduled Messaging"
+                description="Plan and automate message delivery at optimal times to maximize engagement and response rates."
+                delay={0.3}
+              />
+            </a>
+            <a href="/services/message-logs">
+              <ServiceCard
+                icon={<BarChart className="h-10 w-10 text-yellow-500" />}
+                title="Message Logs & Tracking"
+                description="Monitor sent and received messages with detailed analytics on delivery, open rates, and conversions."
+                delay={0.4}
+              />
+            </a>
+            <a href="/services/device-management">
+              <ServiceCard
+                icon={<Smartphone className="h-10 w-10 text-red-500" />}
+                title="Device Management"
+                description="Connect and manage multiple devices from a single dashboard for seamless campaign execution."
+                delay={0.5}
+              />
+            </a>
+            <a href="/services/message-templates">
+              <ServiceCard
+                icon={<FileText className="h-10 w-10 text-indigo-500" />}
+                title="Message Templates"
+                description="Save and reuse message formats for efficiency and consistent brand communication."
+                delay={0.6}
+              />
+            </a>
+            <a href="/services/webhook-integration">
+              <ServiceCard
+                icon={<Webhook className="h-10 w-10 text-pink-500" />}
+                title="Webhook Integration"
+                description="Seamless API and webhook support to integrate WhatsApp messaging with your existing business systems."
+                delay={0.7}
+              />
+            </a>
+            <a href="/services/contact-book">
+              <ServiceCard
+                icon={<BookOpen className="h-10 w-10 text-teal-500" />}
+                title="Contact Book"
+                description="Organize and manage your contact list easily with advanced segmentation and tagging capabilities."
+                delay={0.8}
+              />
+            </a>
+            <a href="/services/api-authentication">
+              <ServiceCard
+                icon={<Key className="h-10 w-10 text-amber-500" />}
+                title="API Authentication"
+                description="Secure your integrations with robust authentication mechanisms and API keys for safe data exchange."
+                delay={0.9}
+              />
+            </a>
+            <a href="/services/user-friendly-dashboard">
+              <ServiceCard
+                icon={<LayoutDashboard className="h-10 w-10 text-cyan-500" />}
+                title="User-Friendly Dashboard"
+                description="Get comprehensive insights and analytics on usage, campaign performance, and customer engagement."
+                delay={1.0}
+              />
+            </a>
           </div>
 
           <motion.div
