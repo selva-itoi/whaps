@@ -27,6 +27,9 @@ const Services: React.FC = () => {
       </Helmet>
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+            WhatsApp Marketing & Automation Services
+          </h1>
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -120,15 +123,14 @@ const Services: React.FC = () => {
                   <p className="mt-4 text-lg text-gray-600">
                     Join thousands of businesses that use our platform to engage with their customers effectively.
                   </p>
-                  <a href="/pricing">
-                    <motion.button
-                      className="mt-6 bg-green-500 text-white px-8 py-3 rounded-full font-medium text-lg"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Get Started Now
-                    </motion.button>
-                  </a>
+                  <motion.button
+                    className="mt-6 bg-green-500 text-white px-8 py-3 rounded-full font-medium text-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <a href="/pricing">Get Started Now</a>
+                  </motion.button>
+
                 </div>
                 <div className="md:w-1/2 relative">
                   <ThreeDImage />
@@ -166,7 +168,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
       whileHover={{ y: -5 }}
     >
       <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+      <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
       <p className="text-gray-600">{description}</p>
     </motion.div>
   );

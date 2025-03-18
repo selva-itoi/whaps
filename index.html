@@ -6,13 +6,30 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whaps - Professional WhatsApp Marketing Platform</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Whaps",
+    "url": "https://www.whaps.in",
+    "description": "Connect with your audience directly through WhatsApp."
+  }
+  </script>
   <meta name="description"
     content="Connect with your audience directly through WhatsApp. Send personalized messages, promotions, and updates to boost engagement and drive conversions.">
 </head>
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <script type="module" src="/src/main.tsx" async></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'YOUR_TRACKING_ID');
+  </script>
 
 </body>
 
