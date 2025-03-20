@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /admin/
+Crawl-delay: 10
 
+Host: https://whaps.in
 Sitemap: https://whaps.in/sitemap.xml

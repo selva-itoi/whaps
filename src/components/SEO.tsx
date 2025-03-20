@@ -12,7 +12,7 @@ export default function SEO({
     title,
     description,
     keywords = [],
-    ogImage = 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e',
+    ogImage = '/img/logo.jpg',
     ogUrl = 'https://whaps.in'
 }: SEOProps) {
     const formattedTitle = `${title} | Whaps`;
@@ -39,10 +39,25 @@ export default function SEO({
             <meta name="twitter:image" content={ogImage} />
 
             {/* Additional Meta Tags */}
-            <meta name="robots" content="index, follow" />
-            <meta name="author" content="John Doe" />
+            <meta name="robots" content="index, follow, max-image-preview:large" />
+            <meta name="author" content="Whaps Technologies" />
+            <meta name="copyright" content="Whaps" />
+            <meta httpEquiv="content-language" content="en_IN" />
+
+            {/* Structured Data */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://whaps.in",
+                    "@type": "Organization",
+                    "name": "Whaps",
+                    "url": "https://whaps.in",
+                    "logo": "https://whaps.in/img/logo.png",
+                    "sameAs": ["https://twitter.com/whaps"]
+                })}
+            </script>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="canonical" href={ogUrl} />
+            <meta name="google-site-verification" content="your_verification_code" />
         </Helmet>
     );
 }
