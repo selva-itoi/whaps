@@ -6,6 +6,9 @@ interface SEOProps {
     keywords?: string[];
     ogImage?: string;
     ogUrl?: string;
+    canonicalUrl?: string;
+    ogType?: string;
+    twitterCard?: string;
 }
 
 export default function SEO({
@@ -13,8 +16,11 @@ export default function SEO({
     description,
     keywords = [],
     ogImage = '/img/logo.jpg',
-    ogUrl = 'https://whaps.in'
-}: SEOProps) {
+    ogUrl = 'https://whaps.in',
+    canonicalUrl,
+    ogType = 'website',
+    twitterCard = 'summary_large_image'
+}: SEOProps & { children?: React.ReactNode }) {
     const formattedTitle = `${title} | Whaps`;
 
     return (
@@ -23,7 +29,13 @@ export default function SEO({
             <title>{formattedTitle}</title>
             <meta name="description" content={description || "Default description for SEO."} />
 
-            <meta name="keywords" content={keywords.join(', ')} />
+            <meta name="keywords" content={[...new Set([
+                'WhatsApp Business API', 'Bulk Messaging', 'Chatbot Integration',
+                'CRM Integration', 'Enterprise Messaging', 'API Security',
+                'Two-Way Communication', 'Message Templates', 'Session Messages',
+                'WhatsApp Cloud API', 'Cloud Communications', 'Omnichannel Support',
+                ...keywords
+            ])].join(', ')} />
 
             {/* Open Graph Meta Tags */}
             <meta property="og:title" content={formattedTitle} />
@@ -33,7 +45,7 @@ export default function SEO({
             <meta property="og:type" content="website" />
 
             {/* Twitter Card Meta Tags */}
-            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:card" content={twitterCard} />
             <meta name="twitter:title" content={formattedTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
@@ -47,7 +59,7 @@ export default function SEO({
             {/* Structured Data */}
             <script type="application/ld+json">
                 {JSON.stringify({
-                    "@context": "https://whaps.in",
+                    "@context": "https://schema.org",
                     "@type": "Organization",
                     "name": "Whaps",
                     "url": "https://whaps.in",
@@ -56,7 +68,7 @@ export default function SEO({
                 })}
             </script>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="canonical" href={ogUrl} />
+            <link rel="canonical" href={canonicalUrl || ogUrl} />
             <meta name="google-site-verification" content="your_verification_code" />
         </Helmet>
     );

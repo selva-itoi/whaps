@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Smartphone, Users, Link, Shield, RefreshCw, Server } from "lucide-react";
 import ServiceLayout from "../components/layouts/ServiceLayout";
 import Button from "@/components/ui/Button";
+import SEO from "../components/SEO";
 import { t } from "i18next";
-import { Helmet } from "react-helmet-async";
 
 const DeviceManagement: React.FC = () => {
   return (
@@ -13,38 +13,19 @@ const DeviceManagement: React.FC = () => {
       title=""
       description=""
     >
-      <Helmet
+      <SEO
         title={t`Multi-Device WhatsApp Management - Connect & Sync Devices`}
-        meta={[
-          {
-            name: "description",
-            content: t`Easily manage multiple WhatsApp devices, sync messages in real-time, and switch between accounts effortlessly.`,
-          },
-          {
-            name: "keywords",
-            content: t`WhatsApp multi-device, WhatsApp sync, WhatsApp management, link devices, business WhatsApp, secure messaging`,
-          },
-          {
-            property: "og:title",
-            content: t`Multi-Device WhatsApp Management - Connect & Sync Devices`,
-          },
-          {
-            property: "og:description",
-            content: t`Manage all your WhatsApp devices in one place. Stay synced, switch accounts, and enhance your workflow.`,
-          },
-          {
-            property: "og:type",
-            content: "website",
-          },
-          {
-            property: "og:image",
-            content: "https://whaps.in/img/logo.jpg", // Update with actual image URL
-          },
-          {
-            property: "og:url",
-            content: "https://whaps.in/services/device-management",
-          },
+        description={t`Enterprise-grade device management for WhatsApp accounts. Centrally manage multiple devices with real-time sync, access controls, and security monitoring. MDM solutions for businesses.`}
+        keywords={[
+          'WhatsApp Device Management', 'Multi-Device Sync', 'Enterprise Mobility',
+          'Mobile Device Security', 'Device Compliance', 'Remote Wipe',
+          'WhatsApp Business MDM', 'Device Access Control', 'Enterprise Device Management'
         ]}
+        ogImage="https://whaps.in/img/logo.jpg"
+        ogUrl="https://whaps.in/services/device-management"
+        canonicalUrl="https://whaps.in/"
+        ogType="article"
+        twitterCard="summary_large_image"
       />
       {/* Hero Section */}
       <motion.section

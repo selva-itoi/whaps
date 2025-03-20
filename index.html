@@ -5,31 +5,47 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Whaps - Professional WhatsApp Marketing Platform</title>
+  <title>WhatsApp Marketing Platform | Bulk Messaging & Automation - Whaps</title>
   <link rel="canonical" href="https://www.whaps.in" />
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@context": "https://whaps.in",
+    "@type": "Organization",
     "name": "Whaps",
     "url": "https://www.whaps.in",
-    "description": "Connect with your audience directly through WhatsApp."
+    "logo": "https://whaps.in/img/logo.png",
+    "description": "Enterprise WhatsApp API solutions for marketing automation and customer engagement",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vadaseri",
+      "addressLocality": "Nagercoil",
+      "postalCode": "629001",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-1234567890",
+      "contactType": "sales"
+    }
   }
   </script>
   <meta name="description"
-    content="Connect with your audience directly through WhatsApp. Send personalized messages, promotions, and updates to boost engagement and drive conversions." />
+    content="India's leading WhatsApp marketing platform with API integration. Send bulk messages, automate campaigns, and track analytics with enterprise-grade reliability." />
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx" async></script>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ABCDE12345"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'YOUR_TRACKING_ID');
+    gtag('config', 'G-ABCDE12345', {
+      page_path: window.location.pathname,
+      transport_type: 'beacon'
+    });
   </script>
 
 </body>

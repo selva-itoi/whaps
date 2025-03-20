@@ -8,38 +8,67 @@ import { Helmet } from "react-helmet-async";
 const WebhookIntegration: React.FC = () => {
   return (
     <> <Helmet
-      title={t`Webhook Integration - Automate Your Workflows`}
+      title={t`Bulk Messaging Webhooks & Real-Time Notifications API`}
       meta={[
         {
           name: "description",
-          content: t`Streamline your workflow with real-time webhook integration. Automate tasks, sync data, and connect services effortlessly.`,
+          content: t`Automate bulk messaging workflows with secure webhook integration. Receive real-time SMS/WhatsApp delivery reports and user interactions via API.`,
         },
         {
           name: "keywords",
-          content: t`webhook integration, API automation, real-time webhooks, workflow automation, event-driven integration, secure API connections`,
+          content: t`bulk messaging webhooks, WhatsApp API integration, SMS delivery notifications, real-time message tracking, webhook setup, automated alerts API`,
         },
         {
           property: "og:title",
-          content: t`Webhook Integration - Automate Your Workflows`,
+          content: t`Enterprise Webhook Integration for Bulk Messaging`,
         },
         {
           property: "og:description",
-          content: t`Seamlessly integrate webhooks with your applications. Receive real-time updates, trigger custom events, and enhance automation.`,
+          content: t`Configure real-time webhooks for SMS/WhatsApp message tracking and user engagement analytics.`,
         },
         {
           property: "og:type",
           content: "website",
         },
         {
-          property: "og:image",
-          content: "https://whaps.in/img/logo.jpg", // Replace with actual image URL
-        },
-        {
           property: "og:url",
           content: "https://whaps.in/services/webhook-integration",
         },
+        {
+          property: "og:image",
+          content: "https://whaps.in/img/logo.jpg",
+        },
+        {
+          property: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          property: "twitter:site",
+          content: "@whaps_app",
+        },
       ]}
-    />
+    >
+      {/* Schema.org for API Documentation */}
+      <script type="application/ld+json">
+        {`{
+          "@context": "https://whaps.in",
+          "@type": "APIReference",
+          "name": "Bulk Messaging Webhook API",
+          "description": "Real-time notification system for bulk SMS and WhatsApp messages",
+          "documentation": "https://whaps.in/",
+          "provider": {
+            "@type": "Organization",
+            "name": "Whaps",
+            "url": "https://whaps.in"
+          },
+          "areaServed": "Global",
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://whaps.in/"
+          }
+        }`}
+      </script>
+    </Helmet>
       <ServiceLayout
         emoji=""
         title=""

@@ -127,7 +127,7 @@ const Pricing: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Simple, Transparent Pricing</h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800">WhatsApp Marketing Pricing Plans - Affordable Bulk Messaging Solutions</h1>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the plan that fits your business needs. No hidden fees or long-term commitments.
           </p>

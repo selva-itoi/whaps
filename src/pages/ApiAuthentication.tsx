@@ -3,43 +3,29 @@ import { motion } from "framer-motion";
 import ServiceLayout from "../components/layouts/ServiceLayout";
 import { CheckCircle, Shield, KeyRound, Globe, Settings } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import { t } from "i18next";
 
 const ApiAuthentication: React.FC = () => {
   return (
-    <><Helmet
+    <><SEO
       title={t`API Authentication - Secure Your WhatsApp API Access`}
-      meta={[
-        {
-          name: "description",
-          content: t`Protect your API with secure authentication keys. Ensure only authorized access with encrypted authentication methods.`,
-        },
-        {
-          name: "keywords",
-          content: t`API security, authentication keys, secure API, WhatsApp API, encrypted authentication, API integration`,
-        },
-        {
-          property: "og:title",
-          content: t`API Authentication - Secure Your WhatsApp API Access`,
-        },
-        {
-          property: "og:description",
-          content: t`Implement secure authentication for your WhatsApp API integration. Generate, manage, and validate API keys effortlessly.`,
-        },
-        {
-          property: "og:type",
-          content: "website",
-        },
-        {
-          property: "og:image",
-          content: "https://whaps.in/img/logo.jpg", // Update with a relevant image if needed
-        },
-        {
-          property: "og:url",
-          content: "https://whaps.in/services/api-authentication",
-        },
-      ]} /><ServiceLayout
+      description={t`Enterprise-grade security for WhatsApp API integration. Implement OAuth2, API key rotation, and encrypted authentication with Whaps. Get started with secure API management in minutes.`}
+      keywords={[
+        'WhatsApp API Security', 'API Key Management', 'OAuth2 Authentication',
+        'Encrypted API Keys', 'API Rate Limiting', 'JWT Tokens',
+        'Two-Factor Authentication', 'API Security Best Practices',
+        'WhatsApp Cloud API Security', 'Enterprise API Protection',
+        'Secure Messaging API', 'API Authentication Service',
+        'WhatsApp Business API Security', 'Cloud API Encryption'
+      ]}
+      ogImage="https://whaps.in/img/logo.jpg"
+      ogUrl="https://whaps.in/services/api-authentication"
+      canonicalUrl="https://whaps.in/"
+      ogType="article"
+      twitterCard="summary_large_image"
+    />
+      <ServiceLayout
         emoji=""
         title=""
         description=""

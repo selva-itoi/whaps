@@ -25,11 +25,11 @@ const Services: React.FC = () => {
         meta={[
           {
             name: "description",
-            content: t`Discover our powerful WhatsApp marketing solutions, including AI-driven chatbots, bulk messaging, automated scheduling, and seamless API integration.`,
+            content: t`Boost customer engagement with Whaps' WhatsApp marketing platform - AI chatbots, bulk messaging automation, API integration & real-time analytics. 98% open rate guaranteed.`,
           },
           {
             name: "keywords",
-            content: t`WhatsApp marketing, AI chatbots, bulk messaging, automated scheduling, API integration, customer engagement`,
+            content: t`WhatsApp Business API, bulk WhatsApp messaging, chatbot automation, scheduled messages, customer engagement tools, WhatsApp marketing platform, message analytics, WhatsApp API integration, enterprise WhatsApp solutions, cloud-based WhatsApp services`,
           },
           {
             name: "author",

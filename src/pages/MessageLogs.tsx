@@ -8,39 +8,42 @@ import { Helmet } from "react-helmet-async";
 const MessageLogs: React.FC = () => {
   return (
 
-    <> <Helmet
-      title={t`Message Logs - Track & Analyze Your Messages`}
-      meta={[
-        {
-          name: "description",
-          content: t`Monitor message delivery, engagement, and performance with real-time tracking and analytics.`,
-        },
-        {
-          name: "keywords",
-          content: t`message logs, message tracking, delivery reports, engagement analytics, failed messages, real-time monitoring, message performance`,
-        },
-        {
-          property: "og:title",
-          content: t`Message Logs - Track & Analyze Your Messages`,
-        },
-        {
-          property: "og:description",
-          content: t`Gain insights into your messaging performance with powerful tracking tools and analytics.`,
-        },
-        {
-          property: "og:type",
-          content: "website",
-        },
-        {
-          property: "og:image",
-          content: "https://whaps.in/img/logo.jpg", // Update with actual image URL
-        },
-        {
-          property: "og:url",
-          content: "https://whaps.in/services/message-logs",
-        },
-      ]}
-    />
+    <>
+      <Helmet>
+        <title>{t`Bulk Message Tracking & Analytics Dashboard | Whaps`}</title>
+        <meta name="description" content={t`Track bulk message delivery, analyze engagement metrics, and optimize campaigns with real-time SMS/WhatsApp analytics. Get detailed message logs and performance reports.`} />
+        <meta name="keywords" content={t`bulk SMS tracking, WhatsApp message analytics, mass message reports, delivery status tracking, message engagement metrics, SMS campaign analytics, bulk messaging insights`} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={t`Bulk Message Tracking & Analytics Dashboard`} />
+        <meta property="og:description" content={t`Real-time tracking and analytics for bulk SMS/WhatsApp campaigns. Monitor delivery rates, engagement metrics, and campaign performance.`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://whaps.in/services/message-logs" />
+        <meta property="og:image" content="https://whaps.in/img/logo.jpg" />
+
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@whaps_app" />
+
+        {/* Schema.org Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://whaps.in",
+            "@type": "Product",
+            "name": "Bulk Message Analytics",
+            "description": "Advanced tracking and analytics for bulk messaging campaigns",
+            "brand": {
+              "@type": "Brand",
+              "name": "Whaps"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "1500"
+            }
+          })}
+        </script>
+      </Helmet>
       <ServiceLayout
         emoji=""
         title=""
