@@ -21,7 +21,8 @@ export default function SEO({
         <Helmet>
             {/* Basic Meta Tags */}
             <title>{formattedTitle}</title>
-            <meta name="description" content={description} />
+            <meta name="description" content={description || "Default description for SEO."} />
+
             <meta name="keywords" content={keywords.join(', ')} />
 
             {/* Open Graph Meta Tags */}

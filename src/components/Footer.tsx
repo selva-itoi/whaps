@@ -10,7 +10,6 @@ import {
   MapPin
 } from "lucide-react";
 import ThemeToggle from "./ui/theme-toggle";
-import { Helmet } from "react-helmet-async";
 
 const Underline = `hover:-translate-y-1 border border-dotted border-gray-200 rounded-xl p-2.5 transition-transform hover:border-green-300 hover:text-green-500`;
 
@@ -67,10 +66,6 @@ const navigation = {
 const Footer: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Footer - Whaps</title>
-        <meta name="description" content="Footer section of the Whaps website, providing contact information and links." />
-      </Helmet>
       <footer className="border-ali/20 :px-4 mx-auto w-full border-b border-t border-gray-100 bg-gray-50 px-2">
         <div className="relative mx-auto grid max-w-7xl items-center justify-center gap-6 p-10 pb-0 md:flex">
           <a href="#home">
