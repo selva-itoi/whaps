@@ -9,8 +9,8 @@ import { t } from "i18next";
 const ApiAuthentication: React.FC = () => {
   return (
     <><SEO
-      title={t`API Authentication - Secure Your WhatsApp API Access`}
-      description={t`Enterprise-grade security for WhatsApp API integration. Implement OAuth2, API key rotation, and encrypted authentication with Whaps. Get started with secure API management in minutes.`}
+      title={t`WhatsApp API Integration & Authentication Setup`}
+      description={t`Free WhatsApp API integration with Salesforce and websites. Secure enterprise-grade authentication setup for sending messages through WhatsApp API. Step-by-step configuration guide.`}
       keywords={[
         'WhatsApp API Security', 'API Key Management', 'OAuth2 Authentication',
         'Encrypted API Keys', 'API Rate Limiting', 'JWT Tokens',

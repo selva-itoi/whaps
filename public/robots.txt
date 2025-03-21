@@ -3,7 +3,11 @@ Allow: /
 Disallow: /private/
 Disallow: /tmp/
 Disallow: /admin/
-Crawl-delay: 10
+Disallow: /api/
+Disallow: /*?session_id=
+Disallow: /*?ref=
+Crawl-delay: 5
 
-Host: https://whaps.in
+# Preferred domain: www.whaps.in
 Sitemap: https://whaps.in/sitemap.xml
+Sitemap: https://whaps.in/sitemap-images.xml
