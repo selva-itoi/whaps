@@ -27,7 +27,7 @@ export default function SEO({
         <Helmet>
             {/* Basic Meta Tags */}
             <title>{formattedTitle}</title>
-            <meta name="description" content={description || "Default description for SEO."} />
+            <meta name="description" content={description || "Official WhatsApp Business API provider offering bulk messaging solutions, chatbot automation & marketing services with enterprise-grade delivery analytics."} />
 
             <meta name="keywords" content={[...new Set([
                 'WhatsApp Business API', 'Bulk Messaging', 'Chatbot Integration',
